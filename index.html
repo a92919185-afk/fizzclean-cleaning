@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FizzClean — Sparkling Clean Toilet in 20 Minutes | No Scrubbing Ever Again</title>
+  <meta name="description" content="FizzClean's instant-action foam dissolves tough stains, limescale and odors in just 20 minutes — no scrubbing, no effort. 70% OFF today. 30-day money-back guarantee." />
+  <link rel="canonical" href="https://fizzclean-cleaning.vercel.app/" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 Free — professional icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- flag-icons — professional SVG country flags -->
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    /* ─── CSS Variables ─────────────────────────────────── */
+    :root {
+      --primary:        #CD2280;
+      --primary-dark:   #a81a68;
+      --primary-light:  #fdf0f8;
+      --dark:           #2C0D4C;
+      --bg:             #FAFAFA;
+      --bg-white:       #ffffff;
+      --text:           #333333;
+      --text-muted:     #666666;
+      --border:         #e8e8e8;
+      --trust-bg:       #f5f5f5;
+      --cta-bg:         #CD2280;
+      --cta-text:       #ffffff;
+      --alert-bg:       #2C0D4C;
+      --star:           #f59e0b;
+      --success:        #16a34a;
+
+      --font-heading:   'Poppins', sans-serif;
+      --font-body:      'Roboto', sans-serif;
+
+      --radius-card:    10px;
+      --radius-btn:     50px;
+      --shadow-card:    0 4px 24px rgba(0,0,0,0.09);
+      --shadow-hover:   0 12px 40px rgba(205,34,128,0.18);
+      --transition:     all 0.2s ease;
+    }
+
+    /* ─── Reset ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); font-size: 16px; line-height: 1.7; color: var(--text); background: var(--bg); }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* ─── Buttons ───────────────────────────────────────── */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--cta-bg); color: var(--cta-text);
+      font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem;
+      padding: 16px 36px; border-radius: var(--radius-btn);
+      border: none; cursor: pointer; transition: var(--transition);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(205,34,128,0.35);
+    }
+
+    /* ─── Section Labels ────────────────────────────────── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--primary-light); color: var(--primary);
+      font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      padding: 5px 14px; border-radius: 50px; margin-bottom: 16px;
+    }
+    .section-h2 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-body { font-size: 1rem; color: var(--text-muted); line-height: 1.75; }
+
+    /* ═══════════════════════════════════════════════════
+       B1 — ALERT BAR
+    ═══════════════════════════════════════════════════ */
+    #announcement-bar {
+      background: var(--alert-bg); color: #fff;
+      text-align: center; padding: 11px 16px;
+      font-family: var(--font-heading); font-size: 0.875rem; font-weight: 600;
+    }
+    .alert-badges {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap;
+    }
+    .alert-badge { display: flex; align-items: center; gap: 8px; }
+    .alert-badge i { color: #f9a8d4; font-size: 0.85rem; }
+
+    /* ═══════════════════════════════════════════════════
+       B2 — NAVBAR
+    ═══════════════════════════════════════════════════ */
+    #header {
+      background: var(--dark); position: sticky;
+      top: 0; z-index: 100;
+      box-shadow: 0 2px 20px rgba(44,13,76,0.4);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 13px 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .nav-logo img { height: 34px; width: auto; object-fit: contain; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.80); font-size: 0.88rem;
+      font-weight: 500; transition: var(--transition);
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-cta .btn-primary { padding: 10px 22px; font-size: 0.88rem; }
+
+    /* ═══════════════════════════════════════════════════
+       B3 — HERO
+    ═══════════════════════════════════════════════════ */
+    #hero {
+      min-height: 88vh;
+      background: linear-gradient(135deg, var(--dark) 0%, #4a1570 55%, #7b1fa2 100%);
+      display: flex; align-items: center; overflow: hidden; position: relative;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; right: 0; top: 0; bottom: 0; width: 48%;
+      background: linear-gradient(135deg, rgba(205,34,128,0.18) 0%, rgba(205,34,128,0.06) 100%);
+      clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 48px; align-items: center;
+      padding: 80px 24px; max-width: 1200px; margin: 0 auto;
+      width: 100%; position: relative; z-index: 1;
+    }
+    .hero-text { color: #fff; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(205,34,128,0.25); border: 1px solid rgba(205,34,128,0.5);
+      color: #f9a8d4; font-size: 0.78rem; font-weight: 700;
+      padding: 5px 14px; border-radius: 50px; margin-bottom: 20px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .hero-text h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 4.2vw, 3rem);
+      font-weight: 700; line-height: 1.15; margin-bottom: 20px;
+    }
+    .hero-text h1 .highlight { color: #f9a8d4; }
+    .hero-subtext { font-size: 1.05rem; color: rgba(255,255,255,0.82); line-height: 1.72; margin-bottom: 10px; }
+    .hero-bullets {
+      margin: 20px 0 28px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .hero-bullet {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.95rem; color: rgba(255,255,255,0.88);
+    }
+    .hero-bullet i { color: #f9a8d4; font-size: 0.85rem; flex-shrink: 0; }
+    .hero-cta-group { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .hero-cta-group .btn-primary { font-size: 1.1rem; padding: 18px 40px; }
+    .hero-price-note {
+      font-size: 0.85rem; color: rgba(255,255,255,0.6);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .hero-price-note .original { text-decoration: line-through; color: rgba(255,255,255,0.4); }
+    .hero-price-note .sale { color: #f9a8d4; font-weight: 700; font-size: 1rem; }
+    .hero-price-note .badge-off {
+      background: var(--primary); color: #fff;
+      font-size: 0.75rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 50px;
+    }
+    .hero-img-col { display: flex; align-items: center; justify-content: center; }
+    .hero-product-img {
+      width: 85%; max-width: 480px; height: auto;
+      object-fit: cover;
+      border-radius: 24px;
+      filter: drop-shadow(0 24px 48px rgba(0,0,0,0.4));
+    }
+
+    /* ═══════════════════════════════════════════════════
+       B4 — TRUST STRIP
+    ═══════════════════════════════════════════════════ */
+    #trust {
+      background: var(--bg-white);
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+      padding: 28px 0;
+    }
+    .trust-grid {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; gap: 20px 44px; align-items: center;
+    }
+    .trust-badge { display: flex; align-items: center; gap: 12px; }
+    .trust-icon {
+      width: 42px; height: 42px; background: var(--primary-light);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .trust-icon i { color: var(--primary); font-size: 1rem; }
+    .trust-badge-text strong { display: block; font-weight: 700; font-size: 0.92rem; color: var(--dark); }
+    .trust-badge-text span { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* ═══════════════════════════════════════════════════
+       B5 — SOCIAL PROOF
+    ═══════════════════════════════════════════════════ */
+    #social-proof {
+      background: var(--primary); padding: 52px 0;
+      color: #fff; text-align: center;
+    }
+    .social-proof-grid {
+      display: flex; flex-wrap: wrap;
+      justify-content: center; align-items: center;
+    }
+    .stat-item { padding: 8px 36px; }
+    .stat-number {
+      font-family: var(--font-heading);
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 700; line-height: 1.1;
+    }
+    .stat-label { font-size: 0.88rem; opacity: 0.88; margin-top: 5px; }
+    .stat-divider { width: 1px; height: 48px; background: rgba(255,255,255,0.25); align-self: center; }
+
+    /* ═══════════════════════════════════════════════════
+       B5.5 — COUNTRY SELECTOR
+    ═══════════════════════════════════════════════════ */
+    #country-selector {
+      padding: 88px 0; background: var(--bg-white); text-align: center;
+    }
+    .country-selector-header { margin-bottom: 48px; }
+    .country-selector-header .section-body { max-width: 480px; margin: 0 auto; }
+
+    /* 5 countries: 5-col desktop, 3-col tablet, 2-col mobile */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      max-width: 900px;
+      margin: 0 auto 36px;
+    }
+    .country-card {
+      display: flex; flex-direction: column; align-items: center;
+      padding: 0; background: #fff;
+      border: 2px solid var(--border); border-radius: 12px;
+      box-shadow: var(--shadow-card);
+      cursor: pointer; text-decoration: none; color: var(--dark);
+      transition: var(--transition); overflow: hidden;
+    }
+    .country-card:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-6px);
+    }
+    .country-flag-wrap {
+      width: 100%; padding: 26px 20px 20px;
+      display: flex; align-items: center; justify-content: center;
+      background: #f8f8f8; border-bottom: 1px solid var(--border);
+      transition: background 0.2s ease;
+    }
+    .country-card:hover .country-flag-wrap {
+      background: var(--primary-light);
+      border-color: rgba(205,34,128,0.2);
+    }
+    .country-flag-wrap .fi {
+      width: 64px; height: 48px;
+      border-radius: 5px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.06);
+      display: block; background-size: cover; background-position: center;
+    }
+    .country-info {
+      width: 100%; padding: 14px 12px 16px;
+      display: flex; flex-direction: column; align-items: center; gap: 5px;
+    }
+    .country-name {
+      font-family: var(--font-heading); font-weight: 600;
+      font-size: 0.92rem; color: var(--dark); text-align: center;
+    }
+    .country-cta {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 0.76rem; font-weight: 700; color: var(--primary);
+      opacity: 0; transform: translateY(5px); transition: var(--transition);
+    }
+    .country-card:hover .country-cta { opacity: 1; transform: translateY(0); }
+
+    .selector-trust {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; flex-wrap: wrap; color: var(--text-muted); font-size: 0.85rem;
+    }
+    .selector-trust-item { display: flex; align-items: center; gap: 7px; }
+    .selector-trust-item i { color: var(--primary); font-size: 0.9rem; }
+
+    /* ═══════════════════════════════════════════════════
+       B6 — BENEFITS
+    ═══════════════════════════════════════════════════ */
+    #benefits { padding: 96px 0; background: var(--trust-bg); }
+    .benefits-layout {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+    }
+    .benefits-text .section-body { margin-bottom: 16px; }
+    .benefits-list { margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 12px; }
+    .benefit-item i { color: var(--primary); font-size: 0.9rem; margin-top: 4px; flex-shrink: 0; }
+    .benefit-item span { font-size: 0.95rem; color: var(--text); line-height: 1.6; }
+    .urgency-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff5f0; border: 1px solid #fcd5b0;
+      color: #c2410c; font-size: 0.88rem; font-weight: 600;
+      padding: 9px 18px; border-radius: 50px;
+      margin: 20px 0 28px;
+    }
+    .benefits-img img {
+      width: 100%; object-fit: contain;
+      filter: drop-shadow(0 16px 40px rgba(205,34,128,0.2));
+      border-radius: 12px;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       HOW TO USE (bloco entre Benefits e Features)
+    ═══════════════════════════════════════════════════ */
+    #how-to-use { padding: 80px 0; background: var(--bg-white); }
+    .how-header { text-align: center; margin-bottom: 52px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .step-card {
+      text-align: center; padding: 36px 24px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+    }
+    .step-number {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-family: var(--font-heading); font-weight: 700; font-size: 1.3rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+    }
+    .step-title {
+      font-family: var(--font-heading); font-weight: 700;
+      font-size: 1rem; color: var(--dark); margin-bottom: 10px;
+    }
+    .step-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+    /* ═══════════════════════════════════════════════════
+       B7 — FEATURES GRID
+    ═══════════════════════════════════════════════════ */
+    #features { padding: 96px 0; background: var(--trust-bg); }
+    .features-header { text-align: center; margin-bottom: 52px; }
+    .features-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 22px; margin-bottom: 48px;
+    }
+    .feature-card {
+      background: var(--bg-white); border: 1px solid var(--border);
+      border-radius: var(--radius-card); padding: 30px 26px;
+      box-shadow: var(--shadow-card); transition: var(--transition);
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(205,34,128,0.25);
+    }
+    .feature-icon-wrap {
+      width: 50px; height: 50px; background: var(--primary-light);
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px;
+    }
+    .feature-icon-wrap i { color: var(--primary); font-size: 1.2rem; }
+    .feature-title { font-family: var(--font-heading); font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 10px; }
+    .feature-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .features-cta { text-align: center; }
+
+    /* ═══════════════════════════════════════════════════
+       B8 — REVIEWS
+    ═══════════════════════════════════════════════════ */
+    #reviews { padding: 96px 0; background: var(--bg-white); }
+    .reviews-header { text-align: center; margin-bottom: 52px; }
+    .reviews-subheadline { font-size: 1rem; color: var(--text-muted); margin-top: 10px; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 40px; }
+    .review-card {
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius-card); padding: 28px;
+      box-shadow: var(--shadow-card);
+    }
+    .review-stars { color: var(--star); font-size: 1rem; letter-spacing: 2px; margin-bottom: 14px; }
+    .review-body { font-size: 0.93rem; line-height: 1.72; color: var(--text); font-style: italic; margin-bottom: 18px; }
+    .reviewer-name { font-weight: 700; font-size: 0.88rem; color: var(--dark); }
+    .reviewer-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 0.76rem; color: var(--success); font-weight: 600; margin-top: 3px;
+    }
+    .reviewer-badge i { font-size: 0.7rem; }
+    .reviews-stats {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
+      background: var(--primary-light); border: 1px solid rgba(205,34,128,0.2);
+      border-radius: var(--radius-card); padding: 32px;
+    }
+    .review-stat { text-align: center; }
+    .review-stat .number { font-family: var(--font-heading); font-size: 2rem; font-weight: 700; color: var(--primary); }
+    .review-stat .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* ═══════════════════════════════════════════════════
+       B9 — FAQ
+    ═══════════════════════════════════════════════════ */
+    #faq { padding: 96px 0; background: var(--trust-bg); }
+    .faq-header { text-align: center; margin-bottom: 52px; }
+    .faq-list { max-width: 800px; margin: 0 auto; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-question {
+      width: 100%; text-align: left; padding: 20px 0;
+      background: none; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      font-family: var(--font-heading); font-size: 0.98rem; font-weight: 600;
+      color: var(--dark); transition: var(--transition);
+    }
+    .faq-question:hover { color: var(--primary); }
+    .faq-icon {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--primary-light); display: flex; align-items: center; justify-content: center;
+      transition: var(--transition);
+    }
+    .faq-icon i { color: var(--primary); font-size: 0.72rem; transition: var(--transition); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-answer p { padding: 0 0 20px; font-size: 0.93rem; color: var(--text-muted); line-height: 1.75; }
+    .faq-item.open .faq-answer { max-height: 400px; }
+    .faq-item.open .faq-icon { background: var(--primary); }
+    .faq-item.open .faq-icon i { color: #fff; transform: rotate(45deg); }
+
+    /* ═══════════════════════════════════════════════════
+       B10 — SEO BLOCK (visually hidden)
+    ═══════════════════════════════════════════════════ */
+    #seo-content {
+      position: absolute; left: -9999px;
+      width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap;
+    }
+
+    /* ═══════════════════════════════════════════════════
+       B11 — FOOTER
+    ═══════════════════════════════════════════════════ */
+    #footer { background: var(--dark); color: rgba(255,255,255,0.72); padding: 64px 0 32px; }
+    .footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer-logo { height: 32px; width: auto; object-fit: contain; margin-bottom: 16px; filter: brightness(0) invert(1); }
+    .footer-brand p { font-size: 0.875rem; line-height: 1.72; color: rgba(255,255,255,0.52); max-width: 300px; }
+    .footer-col h4 { font-weight: 700; font-size: 0.8rem; color: rgba(255,255,255,0.9); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.07em; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 0.875rem; color: rgba(255,255,255,0.52); transition: var(--transition); cursor: pointer; display: flex; align-items: center; gap: 7px; }
+    .footer-col ul li a i { font-size: 0.72rem; }
+    .footer-col ul li a:hover { color: #f9a8d4; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; display: flex; flex-direction: column; gap: 14px; }
+    .footer-distributor {
+      font-size: 0.78rem; color: rgba(255,255,255,0.48); line-height: 1.65;
+      padding: 12px 16px; background: rgba(255,255,255,0.04);
+      border-left: 3px solid rgba(205,34,128,0.5); border-radius: 0 4px 4px 0;
+    }
+    .footer-disclaimer { font-size: 0.78rem; color: rgba(255,255,255,0.36); line-height: 1.65; }
+    .footer-copyright { font-size: 0.78rem; color: rgba(255,255,255,0.32); }
+
+    /* ─── Legal Modals ──────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 1000;
+      align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-drawer {
+      background: #fff; border-radius: 16px 16px 0 0;
+      width: 100%; max-width: 720px; max-height: 80vh;
+      overflow-y: auto; padding: 40px 36px;
+      position: relative; animation: slideUp 0.28s ease;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal-close {
+      position: absolute; top: 20px; right: 24px;
+      background: #f1f5f9; border: none; cursor: pointer;
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted); transition: var(--transition); font-size: 0.9rem;
+    }
+    .modal-close:hover { background: #e2e8f0; }
+    .modal-drawer h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--dark); margin-bottom: 18px; }
+    .modal-drawer h3 { font-size: 1rem; font-weight: 600; color: var(--dark); margin: 18px 0 8px; }
+    .modal-drawer p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.75; margin-bottom: 10px; }
+
+    /* ─── Responsive ────────────────────────────────── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 36px; padding: 60px 24px; }
+      .hero-cta-group { align-items: center; }
+      .hero-bullets { align-items: flex-start; text-align: left; max-width: 340px; margin: 20px auto 28px; }
+      .hero-img-col { order: -1; }
+      .hero-product-img { width: 80%; max-width: 340px; }
+      #hero::after { display: none; }
+      .benefits-layout { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-img { order: -1; }
+      .steps-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .nav-links { display: none; }
+      .country-grid { grid-template-columns: repeat(3, 1fr); max-width: 580px; }
+    }
+    @media (max-width: 600px) {
+      .features-grid { grid-template-columns: 1fr; }
+      .country-grid { grid-template-columns: repeat(2, 1fr); max-width: 360px; gap: 12px; }
+      .country-flag-wrap { padding: 20px 14px 16px; }
+      .country-flag-wrap .fi { width: 52px; height: 39px; }
+      .country-name { font-size: 0.82rem; }
+      .modal-drawer { padding: 28px 18px; }
+      .stat-divider { display: none; }
+      .social-proof-grid { flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     B1 — ALERT BAR
+═══════════════════════════════════════════════════ -->
+<div id="announcement-bar" role="banner">
+  <div class="alert-badges">
+    <div class="alert-badge">
+      <i class="fa-solid fa-bolt-lightning" aria-hidden="true"></i>
+      <strong>UP TO 70% OFF — Limited Time Only</strong>
+    </div>
+    <div class="alert-badge">
+      <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+      30-Day Money-Back Guarantee
+    </div>
+    <div class="alert-badge">
+      <i class="fa-solid fa-truck-fast" aria-hidden="true"></i>
+      Free Shipping Available
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     B2 — NAVBAR
+═══════════════════════════════════════════════════ -->
+<header id="header" role="navigation">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo" aria-label="FizzClean Home">
+      <img
+        src="https://get-fizzclean.com/wp-content/uploads/FizzClean_purple.svg"
+        alt="FizzClean official logo"
+        width="140" height="34"
+      />
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#benefits">Benefits</a>
+      <a href="#features">How It Works</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#country-selector" class="btn-primary">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        Select Your Country
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     B3 — HERO
+═══════════════════════════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-h1">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        4.7★ &nbsp;·&nbsp; 1,000+ Verified Reviews
+      </div>
+      <h1 id="hero-h1">
+        Sparkling Clean Toilet<br />
+        in <span class="highlight">20 Minutes — Zero Scrubbing</span>
+      </h1>
+      <p class="hero-subtext">
+        FizzClean's instant-action foam expands into every corner of your toilet, dissolving tough stains, limescale and odour-causing bacteria — while you do absolutely nothing.
+      </p>
+      <div class="hero-bullets">
+        <div class="hero-bullet">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <span>Deep cleans 100% of your toilet</span>
+        </div>
+        <div class="hero-bullet">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <span>Kills 99.9% of odour-causing bacteria</span>
+        </div>
+        <div class="hero-bullet">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <span>Non-toxic, bleach-free &amp; septic-safe</span>
+        </div>
+        <div class="hero-bullet">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          <span>Results in just 20 minutes</span>
+        </div>
+      </div>
+      <div class="hero-cta-group">
+        <a href="#country-selector" class="btn-primary">
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          Choose Your Country — Get 70% Off
+        </a>
+        <div class="hero-price-note">
+          <span class="original">$49.99</span>
+          <span class="sale">$14.99</span>
+          <span class="badge-off">70% OFF</span>
+          &nbsp;·&nbsp;
+          <i class="fa-solid fa-shield-halved" style="color:#f9a8d4"></i>
+          30-Day Guarantee
+        </div>
+      </div>
+    </div>
+    <div class="hero-img-col">
+      <img
+        class="hero-product-img"
+        src="https://get-fizzclean.com/img/SGVyb18xN19XaHlDaG9vc2VfdG9pbGV0X2ZvYW1fTnVyb0NsZWFuLTIuanBn-h_480.jpg"
+        alt="FizzClean instant foam toilet cleaner product"
+        width="480" height="480"
+        loading="eager"
+        onerror="this.src='https://get-fizzclean.com/wp-content/uploads/FizzClean_purple.svg'"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B4 — TRUST STRIP
+═══════════════════════════════════════════════════ -->
+<section id="trust" aria-label="Trust indicators">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-badge">
+        <div class="trust-icon"><i class="fa-solid fa-shield-halved" aria-hidden="true"></i></div>
+        <div class="trust-badge-text">
+          <strong>30-Day Guarantee</strong>
+          <span>Full refund, no questions asked</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"><i class="fa-solid fa-flask" aria-hidden="true"></i></div>
+        <div class="trust-badge-text">
+          <strong>Non-Toxic Formula</strong>
+          <span>Bleach-free &amp; family-safe</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"><i class="fa-solid fa-clock" aria-hidden="true"></i></div>
+        <div class="trust-badge-text">
+          <strong>Works in 20 Minutes</strong>
+          <span>No scrubbing required</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"><i class="fa-solid fa-star" aria-hidden="true"></i></div>
+        <div class="trust-badge-text">
+          <strong>4.7 / 5 Rating</strong>
+          <span>From 1,000+ verified customers</span>
+        </div>
+      </div>
+      <div class="trust-badge">
+        <div class="trust-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></div>
+        <div class="trust-badge-text">
+          <strong>Ships Worldwide</strong>
+          <span>Available in 5 countries</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B5 — SOCIAL PROOF
+═══════════════════════════════════════════════════ -->
+<section id="social-proof" aria-label="Customer statistics">
+  <div class="container">
+    <div class="social-proof-grid">
+      <div class="stat-item">
+        <div class="stat-number">8,000+</div>
+        <div class="stat-label">Happy Customers</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">70% OFF</div>
+        <div class="stat-label">Limited-Time Discount</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">4.7★</div>
+        <div class="stat-label">Average Rating</div>
+      </div>
+      <div class="stat-divider" aria-hidden="true"></div>
+      <div class="stat-item">
+        <div class="stat-number">20 min</div>
+        <div class="stat-label">To a Spotless Toilet</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B5.5 — COUNTRY SELECTOR (Model B)
+═══════════════════════════════════════════════════ -->
+<section id="country-selector" aria-labelledby="country-h2">
+  <div class="container">
+    <div class="country-selector-header">
+      <div class="section-label">
+        <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+        Choose Your Country
+      </div>
+      <h2 id="country-h2" class="section-h2">
+        Select Your Location to See<br />Your Local Offer
+      </h2>
+      <p class="section-body">
+        Available in 5 countries with local pricing, free shipping,
+        and the same 30-day money-back guarantee.
+      </p>
+    </div>
+
+    <div class="country-grid" role="list">
+
+      <a href="https://www.fasttrack36.com/PHPWHDRK/2RQ7DGX9/"
+         class="country-card" role="listitem"
+         aria-label="Shop FizzClean in Germany" rel="noopener">
+        <div class="country-flag-wrap">
+          <span class="fi fi-de" role="img" aria-label="Germany flag"></span>
+        </div>
+        <div class="country-info">
+          <span class="country-name">Germany</span>
+          <span class="country-cta">Shop Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="https://www.fasttrack36.com/PHPWHDRK/2RQ7DGX9/"
+         class="country-card" role="listitem"
+         aria-label="Shop FizzClean in Austria" rel="noopener">
+        <div class="country-flag-wrap">
+          <span class="fi fi-at" role="img" aria-label="Austria flag"></span>
+        </div>
+        <div class="country-info">
+          <span class="country-name">Austria</span>
+          <span class="country-cta">Shop Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="https://www.fasttrack36.com/PHPWHDRK/2RQ7DGX9/"
+         class="country-card" role="listitem"
+         aria-label="Shop FizzClean in Switzerland" rel="noopener">
+        <div class="country-flag-wrap">
+          <span class="fi fi-ch" role="img" aria-label="Switzerland flag"></span>
+        </div>
+        <div class="country-info">
+          <span class="country-name">Switzerland</span>
+          <span class="country-cta">Shop Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="https://www.fasttrack36.com/PHPWHDRK/2RQ7DGX9/"
+         class="country-card" role="listitem"
+         aria-label="Shop FizzClean in United Kingdom" rel="noopener">
+        <div class="country-flag-wrap">
+          <span class="fi fi-gb" role="img" aria-label="United Kingdom flag"></span>
+        </div>
+        <div class="country-info">
+          <span class="country-name">United Kingdom</span>
+          <span class="country-cta">Shop Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+      <a href="https://www.fasttrack36.com/PHPWHDRK/2RQ7DGX9/"
+         class="country-card" role="listitem"
+         aria-label="Shop FizzClean in Australia" rel="noopener">
+        <div class="country-flag-wrap">
+          <span class="fi fi-au" role="img" aria-label="Australia flag"></span>
+        </div>
+        <div class="country-info">
+          <span class="country-name">Australia</span>
+          <span class="country-cta">Shop Now <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="selector-trust" role="note">
+      <div class="selector-trust-item">
+        <i class="fa-solid fa-lock" aria-hidden="true"></i> Secure Checkout
+      </div>
+      <div class="selector-trust-item">
+        <i class="fa-solid fa-shield-halved" aria-hidden="true"></i> 30-Day Money-Back Guarantee
+      </div>
+      <div class="selector-trust-item">
+        <i class="fa-solid fa-truck-fast" aria-hidden="true"></i> Free Shipping
+      </div>
+      <div class="selector-trust-item">
+        <i class="fa-solid fa-headset" aria-hidden="true"></i> Local Support
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B6 — BENEFITS
+═══════════════════════════════════════════════════ -->
+<section id="benefits" aria-labelledby="benefits-h2">
+  <div class="container">
+    <div class="benefits-layout">
+      <div class="benefits-text">
+        <div class="section-label">Why FizzClean Works</div>
+        <h2 id="benefits-h2" class="section-h2">
+          Stop Spending Hours Scrubbing a Toilet That Never Looks Truly Clean
+        </h2>
+        <p class="section-body">
+          Traditional toilet cleaners coat the surface but never reach into the hidden crevices under the rim where bacteria, limescale and rust stains actually live. You scrub for hours, use harsh chemicals, breathe in fumes — and the stains come back within days.
+        </p>
+        <p class="section-body" style="margin-top:14px;">
+          FizzClean works differently. Drop one tablespoon of the foaming powder into your toilet bowl and watch the foam expand into every corner, lifting stubborn stains, dissolving limescale, and killing 99.9% of odour-causing bacteria — while you walk away. In 20 minutes, just flush. That's the entire process.
+        </p>
+        <div class="benefits-list">
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <span><strong>No scrubbing, no kneeling, no gloves</strong> — the foam does all the work</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <span><strong>Safe for the whole family</strong> — non-toxic, bleach-free formula</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <span><strong>Works on more than toilets</strong> — also bathtubs, sinks, tiles &amp; drains</span>
+          </div>
+          <div class="benefit-item">
+            <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+            <span><strong>100% septic tank-friendly</strong> — safe for all plumbing systems</span>
+          </div>
+        </div>
+        <div class="urgency-badge">
+          <i class="fa-solid fa-fire" aria-hidden="true"></i>
+          High demand — stock selling out fast. Order now to lock in 70% off.
+        </div>
+        <a href="#country-selector" class="btn-primary">
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          Select Your Country &amp; Save 70%
+        </a>
+      </div>
+      <div class="benefits-img">
+        <img
+          src="https://get-fizzclean.com/img/SGVyb18xOF9NZWV0LW91ci1FeHBlcnRfdG9pbGV0X2ZvYW1fTnVyb0NsZWFuLTEuanBn-h_480.jpg"
+          alt="FizzClean foam action cleaning toilet bowl"
+          width="480" height="480"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     HOW TO USE — 3 Steps
+═══════════════════════════════════════════════════ -->
+<section id="how-to-use" aria-labelledby="how-h2">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-label">
+        <i class="fa-solid fa-list-ol" aria-hidden="true"></i>
+        How to Use
+      </div>
+      <h2 id="how-h2" class="section-h2">Clean Your Toilet in 3 Simple Steps</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-title">Pour</div>
+        <p class="step-desc">Add one tablespoon of FizzClean powder directly into your toilet bowl. No measuring tools needed.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-title">Wait 20 Minutes</div>
+        <p class="step-desc">The foam instantly expands and works its way into every crevice — dissolving stains, limescale and bacteria while you relax.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-title">Flush</div>
+        <p class="step-desc">A single flush removes everything — leaving your toilet sparkling clean and smelling Ocean Fresh. No rinsing, no scrubbing, no effort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B7 — FEATURES GRID
+═══════════════════════════════════════════════════ -->
+<section id="features" aria-labelledby="features-h2">
+  <div class="container">
+    <div class="features-header">
+      <div class="section-label">What Makes FizzClean Different</div>
+      <h2 id="features-h2" class="section-h2">
+        Six Reasons Thousands Have Ditched Their Old Toilet Cleaner
+      </h2>
+    </div>
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-burst" aria-hidden="true"></i></div>
+        <div class="feature-title">Instant Foam Action</div>
+        <p class="feature-desc">The moment FizzClean powder hits water it creates a thick, expanding foam that reaches into every corner of your toilet — including under the rim where bacteria hide most.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-droplet-slash" aria-hidden="true"></i></div>
+        <div class="feature-title">Dissolves Tough Stains in 20 Minutes</div>
+        <p class="feature-desc">Limescale, rust rings, and stubborn waterline stains that no brush could shift are dissolved by FizzClean's active formula — without any physical scrubbing required.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-biohazard" aria-hidden="true"></i></div>
+        <div class="feature-title">Kills 99.9% of Bacteria</div>
+        <p class="feature-desc">FizzClean's formula eliminates odour-causing bacteria throughout the entire toilet bowl, leaving behind a hygienic surface and a refreshing Ocean Fresh scent that lasts for days.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-leaf" aria-hidden="true"></i></div>
+        <div class="feature-title">Non-Toxic &amp; Bleach-Free</div>
+        <p class="feature-desc">Made with family-safe, non-toxic ingredients — no harsh bleach, no chemical fumes, no irritating smells. Safe to use around children, pets and sensitive individuals.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-recycle" aria-hidden="true"></i></div>
+        <div class="feature-title">100% Septic Tank Safe</div>
+        <p class="feature-desc">FizzClean is specifically formulated to be completely safe for all septic systems and plumbing types — so you never have to worry about damaging your pipes or tank.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><i class="fa-solid fa-expand" aria-hidden="true"></i></div>
+        <div class="feature-title">Works Beyond the Toilet</div>
+        <p class="feature-desc">FizzClean works wonders on bathtubs, sinks, tiles, countertops and garbage disposals — one product that handles all the tough cleaning jobs in your bathroom and kitchen.</p>
+      </div>
+
+    </div>
+    <div class="features-cta">
+      <a href="#country-selector" class="btn-primary">
+        <i class="fa-solid fa-globe" aria-hidden="true"></i>
+        Get FizzClean — 70% Off Today
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B8 — REVIEWS
+═══════════════════════════════════════════════════ -->
+<section id="reviews" aria-labelledby="reviews-h2">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="section-label">Real Customer Reviews</div>
+      <h2 id="reviews-h2" class="section-h2">
+        What Customers Are Saying About FizzClean
+      </h2>
+      <p class="reviews-subheadline">1,000+ verified purchases. Real results. No scrubbing.</p>
+    </div>
+    <div class="reviews-grid">
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"I used to spend AGES scrubbing my toilet — sometimes even half a day — only to see the same old stubborn stains still there. But it's so much easier with FizzClean when it takes care of everything just like that."</p>
+        <div class="reviewer-name">Lisa</div>
+        <div class="reviewer-badge">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          Verified Purchase
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"I was so embarrassed by the limescale and rust stains in my toilet. No matter how many supposedly good products I tried, nothing worked. But after just one use of FizzClean, the stains were completely gone!"</p>
+        <div class="reviewer-name">Mark</div>
+        <div class="reviewer-badge">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          Verified Purchase
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="review-body">"Cleaning my toilet was always the chore I dreaded the most. Scrubbing for hours, the strong chemical smells, my knees hurting. The thought of touching the toilet made my skin crawl. FizzClean changed everything."</p>
+        <div class="reviewer-name">Emily</div>
+        <div class="reviewer-badge">
+          <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+          Verified Purchase
+        </div>
+      </div>
+
+    </div>
+    <div class="reviews-stats">
+      <div class="review-stat">
+        <div class="number">4.7★</div>
+        <div class="label">Average Rating</div>
+      </div>
+      <div class="review-stat">
+        <div class="number">1,000+</div>
+        <div class="label">Verified Reviews</div>
+      </div>
+      <div class="review-stat">
+        <div class="number">8,000+</div>
+        <div class="label">Happy Customers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B9 — FAQ
+═══════════════════════════════════════════════════ -->
+<section id="faq" aria-labelledby="faq-h2">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-label">Frequently Asked Questions</div>
+      <h2 id="faq-h2" class="section-h2">Everything You Need to Know About FizzClean</h2>
+    </div>
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          Is FizzClean safe for septic tanks?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Absolutely. FizzClean is 100% septic tank safe and gentle on your entire plumbing system. The non-toxic formula breaks down naturally without harming beneficial bacteria in your septic system or causing any damage to pipes.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          Does FizzClean contain bleach?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>No. FizzClean is completely bleach-free. It's made with non-toxic, family-safe ingredients that are tough on stains but gentle on your health. No harsh fumes, no chemical smell, no skin irritation — safe to use around children and pets.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          How often should I use FizzClean?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>For best results, use FizzClean once a week to maintain a spotless and hygienic toilet. For toilets with heavy staining or long-term limescale build-up, you may want to use it twice in the first week to achieve a deep clean, then switch to weekly maintenance.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          What else can I use FizzClean on?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>FizzClean works brilliantly on bathtubs, sinks, garbage disposals, tiles, shower trays and countertops. Anywhere that limescale, hard water stains or soap scum builds up, FizzClean's foaming action can dissolve and lift it with minimal effort.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          Does FizzClean have a scent?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! FizzClean leaves behind a refreshing Ocean Fresh scent after each use. Unlike traditional cleaners that leave a harsh chemical smell, FizzClean's scent is clean and pleasant — exactly what you'd want from a freshly cleaned bathroom.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          Is FizzClean safe for all toilet types?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, FizzClean is formulated to be safe for all types of toilets — including ceramic, porcelain, coloured toilets and those with internal parts such as blue water tablets or automatic rim cleaners. It is also safe for both standard and low-flow toilet systems.</p>
+        </div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-question" aria-expanded="false">
+          What is your money-back guarantee?
+          <span class="faq-icon"><i class="fa-solid fa-plus" aria-hidden="true"></i></span>
+        </button>
+        <div class="faq-answer">
+          <p>We offer a full 30-day money-back guarantee. If you are not completely satisfied with FizzClean for any reason within 30 days of purchase, contact our support team and we will process a complete refund — no questions asked. We take all the risk so you can try FizzClean with complete confidence.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     B10 — SEO BLOCK (visually hidden, crawler-readable)
+═══════════════════════════════════════════════════ -->
+<section id="seo-content" aria-hidden="true">
+  <h2>What Is FizzClean and How Does the Foam Toilet Cleaner Work?</h2>
+  <p><strong>FizzClean</strong> is an innovative <strong>instant-action foaming toilet cleaner</strong> designed to deep-clean your toilet bowl without the need for scrubbing. Unlike traditional liquid gel cleaners that sit on the surface, FizzClean's powder formula reacts with water to produce a thick, expanding foam that penetrates every angle of the toilet — including under the rim, around the waterline, and into the U-bend area where bacteria and limescale accumulate most. The result is a hygienically clean toilet in just 20 minutes with zero physical effort.</p>
+
+  <h2>How FizzClean Dissolves Limescale, Rust and Stubborn Toilet Stains</h2>
+  <p>The most common and difficult toilet cleaning challenges — <strong>limescale deposits</strong>, rust stains and dark waterline rings — are caused by mineral build-up from hard water, combined with bacteria and organic residue. Standard cleaning products that rely on surface contact cannot effectively address these deposits because they evaporate or slide off before achieving full penetration. FizzClean's <strong>foaming action</strong> maintains constant contact with the stained surface throughout the 20-minute treatment window, allowing the active ingredients to break down mineral bonds and lift stubborn deposits. Users report that even long-standing rust rings and heavy limescale build-up that resisted years of scrubbing are eliminated after a single FizzClean treatment.</p>
+
+  <h2>Is FizzClean Safe for Families, Pets and the Environment?</h2>
+  <p>One of the most important distinctions of FizzClean is its <strong>non-toxic, bleach-free formulation</strong>. Traditional toilet cleaners rely on bleach and harsh acids to achieve cleaning power, which creates toxic fumes, causes skin and eye irritation, and poses risks to households with children and pets. FizzClean achieves equivalent or superior cleaning results without any bleach, chlorine compounds or corrosive acids. The formula is also <strong>100% septic tank friendly</strong> — the active ingredients break down naturally without disrupting the bacterial balance of septic systems or causing environmental harm. For households in Germany, Austria, Switzerland, the United Kingdom and Australia looking for a powerful yet responsible <strong>toilet cleaning solution</strong>, FizzClean represents a significant upgrade over conventional products.</p>
+
+  <h2>Why FizzClean Has Become the Preferred Toilet Cleaner Across Europe and Australia</h2>
+  <p>The <strong>FizzClean foaming toilet cleaner</strong> has gained rapid popularity across multiple markets — including Germany, Austria, Switzerland, the United Kingdom and Australia — due to its combination of powerful results, extreme ease of use and family-safe formulation. In markets with hard water (a common issue across much of central Europe and Australia), <strong>limescale removal</strong> is a persistent challenge that conventional products struggle to address adequately. FizzClean's foam penetration technology is specifically effective against limescale because it maintains sustained contact at a molecular level, rather than simply coating the surface. Customer reviews consistently highlight that FizzClean succeeded in removing stains that years of conventional cleaning failed to address.</p>
+
+  <h2>FizzClean vs Traditional Toilet Cleaners: What Makes It Different?</h2>
+  <p>Traditional <strong>toilet bowl cleaners</strong> — whether liquid gel, rim blocks or tablet formats — share a fundamental limitation: they rely on passive contact with the toilet surface rather than active penetration. They are designed to maintain a background level of hygiene but are not formulated to remove heavy staining or deep bacterial contamination. FizzClean represents a different product category: an <strong>intensive treatment cleaner</strong> used once weekly to achieve a genuinely deep clean that passive maintenance products cannot replicate. The comparison is similar to the difference between a daily moisturiser and a deep-conditioning hair treatment — both serve a purpose, but they operate at fundamentally different levels of intensity.</p>
+
+  <h2>Frequently Asked Questions About FizzClean Foam Toilet Cleaner</h2>
+  <p>Customers frequently ask whether <strong>FizzClean works on coloured or designer toilets</strong> — the answer is yes, as the non-abrasive foam formula is safe for all toilet surfaces including coloured ceramics and porcelain finishes. Another common question concerns compatibility with <strong>automatic rim cleaners and in-tank tablets</strong> — FizzClean can be used alongside these products without interference. Customers in hard water areas of Germany, Austria, Switzerland and Australia often ask how quickly FizzClean addresses established limescale — most report visible results after a single application, with complete removal achieved after two to three weekly treatments on heavily scaled toilets. The 30-day money-back guarantee means every customer can verify FizzClean's performance in their own home before committing to long-term use.</p>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is FizzClean safe for septic tanks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. FizzClean is 100% septic tank safe and gentle on all plumbing systems. The non-toxic formula breaks down naturally without harming beneficial bacteria in your septic system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does FizzClean contain bleach?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. FizzClean is completely bleach-free. It's made with non-toxic, family-safe ingredients — no harsh fumes, no chemical smell, safe around children and pets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does FizzClean take to work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "FizzClean works in just 20 minutes. Pour one tablespoon into the toilet bowl, wait 20 minutes while the foam expands and dissolves stains and bacteria, then flush. No scrubbing required."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ═══════════════════════════════════════════════════
+     B11 — FOOTER
+═══════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="https://get-fizzclean.com/wp-content/uploads/FizzClean_purple.svg"
+          alt="FizzClean official logo"
+          width="120" height="32"
+          loading="lazy"
+        />
+        <p>FizzClean is an instant-action foaming toilet cleaner that dissolves tough stains, limescale and odour-causing bacteria in just 20 minutes — without any scrubbing. Available in Germany, Austria, Switzerland, the United Kingdom and Australia.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="#benefits"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Benefits</a></li>
+          <li><a href="#how-to-use"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> How to Use</a></li>
+          <li><a href="#features"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Features</a></li>
+          <li><a href="#reviews"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Reviews</a></li>
+          <li><a href="#country-selector"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Select Country</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a onclick="openModal('privacy')"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Privacy Policy</a></li>
+          <li><a onclick="openModal('terms')"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Terms of Service</a></li>
+          <li><a onclick="openModal('returns')"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Returns &amp; Refunds</a></li>
+          <li><a onclick="openModal('contact')"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i> Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-distributor">
+        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+        &nbsp;<strong>Distributor Notice:</strong> This website is operated by an independent authorised distributor of FizzClean. We are not the manufacturer or brand owner. All trademarks and product names are the property of their respective owners. Individual results may vary.
+      </p>
+      <p class="footer-disclaimer">
+        * Results may vary based on the severity of staining, toilet type, water hardness and frequency of use. FizzClean is not intended to replace professional plumbing services. FTC Disclosure: Customer testimonials reflect individual experiences and are not representative of all users.
+      </p>
+      <p class="footer-copyright">
+        &copy; 2026 FizzClean. All rights reserved. Distributed by an independent authorised distributor.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     LEGAL MODALS
+═══════════════════════════════════════════════════ -->
+<div id="modal-privacy" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+  <div class="modal-drawer">
+    <button class="modal-close" onclick="closeModal('privacy')" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h2 id="modal-privacy-title">Privacy Policy</h2>
+    <p>Last updated: 2026. FizzClean and its authorised distributors are committed to protecting your personal information in compliance with GDPR (EU/UK) and applicable data protection laws in Australia.</p>
+    <h3>Information We Collect</h3>
+    <p>We collect information you provide directly (name, email, shipping address, payment details) when placing an order. We also collect usage data via cookies and analytics tools to improve our website experience.</p>
+    <h3>How We Use Your Information</h3>
+    <p>Your information is used exclusively to process your order, provide customer support, send order updates, and (with your consent) inform you of promotions. We do not sell or rent your personal data to third parties.</p>
+    <h3>GDPR Rights (EU, UK &amp; Switzerland)</h3>
+    <p>You have the right to access, correct, or delete your personal data at any time. You may also request data portability or object to processing. Contact us to exercise any of these rights.</p>
+    <h3>Australian Privacy Act</h3>
+    <p>Australian customers have rights under the Privacy Act 1988. We comply with the Australian Privacy Principles and handle your personal information accordingly.</p>
+  </div>
+</div>
+
+<div id="modal-terms" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-terms-title">
+  <div class="modal-drawer">
+    <button class="modal-close" onclick="closeModal('terms')" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h2 id="modal-terms-title">Terms of Service</h2>
+    <p>By purchasing from this website, you agree to the following terms and conditions. Please read carefully before completing your order.</p>
+    <h3>Independent Distributor</h3>
+    <p>This website is operated by an independent authorised distributor of FizzClean. We are not the manufacturer. Purchases are fulfilled through the official FizzClean fulfilment network.</p>
+    <h3>Product Use</h3>
+    <p>FizzClean is designed for household use only. Follow the instructions provided with the product. Do not mix with bleach or acid-based cleaning products. Keep out of reach of children when not in use.</p>
+    <h3>Limitation of Liability</h3>
+    <p>Our liability is limited to the purchase price of the product. We are not responsible for indirect or consequential damages. Results depend on individual toilet conditions, water hardness and usage patterns.</p>
+  </div>
+</div>
+
+<div id="modal-returns" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-returns-title">
+  <div class="modal-drawer">
+    <button class="modal-close" onclick="closeModal('returns')" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h2 id="modal-returns-title">Returns &amp; Refunds</h2>
+    <p>We stand behind FizzClean with a full 30-day money-back guarantee, valid across all 5 countries we serve.</p>
+    <h3>30-Day Money-Back Guarantee</h3>
+    <p>If you are not completely satisfied with your purchase for any reason within 30 days of delivery, we will issue a full refund of the purchase price — no questions asked.</p>
+    <h3>How to Request a Refund</h3>
+    <p>Contact our support team via the official FizzClean website with your order number. Our team will respond within 1–2 business days with instructions. Refunds are processed within 5–10 business days.</p>
+    <h3>International Returns</h3>
+    <p>For customers in Germany, Austria, Switzerland, the United Kingdom and Australia: return shipping is the responsibility of the customer unless the item arrived damaged or defective. Refunds are issued in the original currency of purchase.</p>
+  </div>
+</div>
+
+<div id="modal-contact" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-contact-title">
+  <div class="modal-drawer">
+    <button class="modal-close" onclick="closeModal('contact')" aria-label="Close"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
+    <h2 id="modal-contact-title">Contact Us</h2>
+    <p>Our customer support team is available to assist customers across all 5 countries. Please contact us through the official FizzClean support channel.</p>
+    <h3>Support</h3>
+    <p>Visit <strong>get-fizzclean.com</strong> and use the contact form to reach our support team. We aim to respond to all enquiries within 1–2 business days.</p>
+    <h3>Distributor Notice</h3>
+    <p>This website is operated by an independent authorised distributor. For manufacturer warranty enquiries, you may also contact FizzClean directly through their official website.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT — FAQ + Modals
+═══════════════════════════════════════════════════ -->
+<script>
+  /* FAQ accordion */
+  document.querySelectorAll('.faq-question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = this.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i) {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* Legal modals */
+  function openModal(name) {
+    var el = document.getElementById('modal-' + name);
+    if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; }
+  }
+  function closeModal(name) {
+    var el = document.getElementById('modal-' + name);
+    if (el) { el.classList.remove('active'); document.body.style.overflow = ''; }
+  }
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) { overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.active').forEach(function(el) {
+        el.classList.remove('active'); document.body.style.overflow = '';
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
